@@ -1,3 +1,157 @@
+window.COURSE_DATA = [
+  {
+    id: "welcome",
+    title: "Welcome & Orientation",
+    screens: [
+      {
+        type: "content",
+        title: "Welcome to Fraud‑Prevention Fundamentals",
+        body: [
+          "This space is designed to build your digital confidence through clarity, structure, and gentle practice.",
+          "Fraud‑prevention is not about fear. It’s about awareness, pattern recognition, and understanding how everyday digital systems work.",
+          "You don’t need a technical background—only curiosity and patience."
+        ]
+      },
+      {
+        type: "content",
+        title: "How to Use This Course",
+        body: [
+          "Use this course for solo learning, family learning, workforce readiness, or community workshops.",
+          "Move at your own pace. Pause, reflect, and revisit activities as needed."
+        ]
+      },
+      {
+        type: "content",
+        title: "Key Terms (Plain‑Language Glossary)",
+        body: [
+          "Fraud: When someone tries to trick a system or person for financial gain.",
+          "Anomaly: Something that doesn’t fit the usual pattern.",
+          "Device Fingerprint: A collection of details about a device that help identify it.",
+          "IP Address: A number that shows where a device is connecting from.",
+          "Velocity: How fast actions happen (transactions, logins, account creation).",
+          "Behavioral Signal: A pattern in how someone types, clicks, or navigates.",
+          "Risk Score: A system’s estimate of how suspicious an action might be."
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "patterns",
+    title: "Pattern‑Recognition Exercises",
+    screens: [
+      {
+        type: "content",
+        title: "Introduction to Pattern Recognition",
+        body: [
+          "Fraud‑prevention begins with noticing patterns.",
+          "You’ll practice seeing what “normal” looks like so you can spot what doesn’t belong."
+        ]
+      },
+      {
+        type: "quiz",
+        title: "Billing Address Consistency",
+        prompt: "Which address looks most suspicious based on small but meaningful differences?",
+        options: [
+          "125 Oak Ridge Lane, Apt 4B",
+          "125 Oakridge Ln, Apartment 4B",
+          "125 Oak Ridge Lane, Unit 4B",
+          "125 Oak Ridge Lane, Apt 4D"
+        ],
+        correctIndex: 3,
+        explanation: "The last address changes the apartment number (4D instead of 4B), which may signal a mismatch."
+      },
+      {
+        type: "quiz",
+        title: "Email + Phone Correlation",
+        prompt: "Which phone number most likely matches the email j.martin84@…?",
+        options: [
+          "(555) 0184",
+          "(555) 448‑9032",
+          "(555) 0084"
+        ],
+        correctIndex: 0,
+        explanation: "The digits 0184 echo the '84' in the email handle, suggesting a pattern match."
+      },
+      {
+        type: "content",
+        title: "Transaction Velocity Timeline",
+        body: [
+          "Imagine 5 transactions at: 10:01, 10:01, 10:02, 10:03, and 10:15.",
+          "Several transactions in just a couple of minutes may be normal—or may be too fast.",
+          "Velocity is about pace: how quickly actions stack up."
+        ]
+      },
+      {
+        type: "reflection",
+        title: "Case Study: The Busy Morning Shopper",
+        prompt: "A customer makes 12 purchases in 4 minutes from different merchants. What patterns stand out? Would you flag this for review? Why or why not?"
+      }
+    ]
+  },
+
+  {
+    id: "device",
+    title: "Device Fingerprinting",
+    screens: [
+      {
+        type: "content",
+        title: "What Is a Device Fingerprint?",
+        body: [
+          "A device fingerprint is a collection of small details that help systems recognize a device.",
+          "It does not read your files. It observes what the device shares automatically, like browser type, screen size, and language."
+        ]
+      },
+      {
+        type: "content",
+        title: "Browser Fingerprint Template",
+        body: [
+          "Typical fields include: browser name, version, installed plugins, screen resolution, timezone, and language.",
+          "Mismatches between these fields and expected patterns can signal risk."
+        ]
+      },
+      {
+        type: "quiz",
+        title: "Consistency Check",
+        prompt: "Which mismatch is more suspicious in a single session?",
+        options: [
+          "Language changes from English to English (US).",
+          "Timezone jumps from UTC‑6 to UTC+3 within seconds."
+        ],
+        correctIndex: 1,
+        explanation: "A sudden timezone jump suggests a different region or a proxy/VPN pattern."
+      }
+    ]
+  },
+
+  {
+    id: "ip",
+    title: "IP Anomaly Maps",
+    screens: [
+      {
+        type: "content",
+        title: "Understanding IP Addresses",
+        body: [
+          "An IP address is like a mailing address for your device on the internet.",
+          "Location patterns help systems see whether activity is expected or unusual."
+        ]
+      },
+      {
+        type: "quiz",
+        title: "Geo‑Location Anomaly",
+        prompt: "Most logins come from Dallas, TX. One login appears from Lagos, Nigeria within minutes. What best describes this?",
+        options: [
+          "Likely normal variation.",
+          "A potential geo‑location anomaly worth reviewing."
+        ],
+        correctIndex: 1,
+        explanation: "A sudden distant location in a short time window can be a strong anomaly signal."
+      }
+    ]
+  },
+
+  {
+    id: "behavior",
     title: "Behavioral Analysis",
     screens: [
       {
@@ -56,29 +210,3 @@
     ]
   }
 ];
-  <div id="app"></div>
-  <script src="data/course.js"></script>
-  <script src="js/app.js">function renderScreen(screen) {
-  const container = document.getElementById("screen-container");
-  container.innerHTML = "";
-
-  if (screen.type === "lesson") {
-    // ...
-  }
-
-  if (screen.type === "exercise") {
-    // ...
-  }
-
-  if (screen.type === "quiz") {
-    // ...
-  }
-
-  // etc...
-}
-</script>
-</body>
-</html>
-
-
-
