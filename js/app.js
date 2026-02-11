@@ -77,6 +77,26 @@ function renderScreen() {
   }
 }
 
+if (screen.type === "reflection") {
+  const container = document.getElementById("screen-container");
+  container.innerHTML = "";
+
+  const title = document.createElement("h2");
+  title.textContent = screen.title;
+
+  const prompt = document.createElement("p");
+  prompt.textContent = screen.prompt;
+
+  const textarea = document.createElement("textarea");
+  textarea.placeholder = "Write your reflection here...";
+  textarea.className = "reflection-input";
+
+  container.appendChild(title);
+  container.appendChild(prompt);
+  container.appendChild(textarea);
+  return;
+}
+
 function checkAnswer(i) {
   const screen = getScreen();
   const feedback = document.getElementById("feedback");
@@ -120,3 +140,4 @@ function nextScreen() {
 }
 
 renderApp();
+
